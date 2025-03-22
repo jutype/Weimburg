@@ -1,0 +1,143 @@
+-var name = "Weimburg"
+
+-var papasFritas= "$6.400"
+-var arosdecebolla= "$9.200"
+-var bastondemuzzarela = "$9.200"
+-var slicecheece= "$3.900"
+
+-var Promocost = ["$22.860", "$33.000", "$18.000"]
+-var arroz= "$10.300"
+-var matriple = "$2.400"
+
+/// manu ginobili 
+-var egSimple = "$10.300"
+-var egdoble = "$12.700"
+
+/// sc30 & dr
+-var scsimple = "$13.700"
+-var scdoble = "$16.100"
+
+// lakers
+-var kbsimple = "$11.400"
+-var kbdoble = "$13.800"
+
+/// bulls
+-var mjsimple = "$12.600"
+-var mjdoble = "$15.000"
+
+
+mixin promo(classname, description, price)
+    div(class=classname): .text-sect
+        each data in description
+            p=data
+        h3=price 
+
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Menu #{name}
+        link(rel="stylesheet", href="animate.css")
+        link(rel="stylesheet", href="style.css")
+        
+    body 
+        #loading-screen: img(src="img/logo.png", alt="", srcset="")
+        .menu#main
+            .d-flex.justify-content-center: img.img-fluid.logo(src="./img/logo.png")
+
+            .d-flex.justify-content-center.map.wow.rotateInDownRight(data-wow-delay="2s"): img.img-fluid(src="./img/map.png")
+
+
+            h1 Menu
+            .section-entrada 
+                h1 Entradas
+                .entradas.wow.slideInRight
+                    img.img-fluid(src="./img/fries.png", alt="")
+                    .text
+                        h2 PAPAS FRITAS
+                        h2: span #{papasFritas}
+                .entradas.wow.slideInLeft
+                    img.img-fluid(src="./img/onions.png", alt="")
+
+                    .text
+                        h2 Aros de CEBOLLA
+                        h2: span #{arosdecebolla}
+                .entradas.wow.slideInRight
+                    img.img-fluid(src="./img/muzzarela.png", alt="")
+                    .text
+                        h2 BASTONES <br> DE MUZZARELLA
+                        h2: span #{bastondemuzzarela}
+                .entradas.wow.slideInLeft
+                    img.img-fluid(src="./img/slice.png", alt="")
+                    .text
+                        h2 SLICE CHEESE
+                        h2: span #{slicecheece}
+
+            h1.my-5 Promos
+            .promos 
+                +promo("a", ["2 EG20 Dobles","+ porcion de papas"], Promocost[0])
+                +promo("b", ["2 Dobles a eleccion","+ porcion de papas"], Promocost[1])
+                +promo("c", ["2 slice cheese","+ bastones de muzzarela"], Promocost[2])
+            
+            .section-entrada.unla: .row.make3
+                .col-3: img.img-fluid(src="img/bur.png", alt="", srcset="")
+                .col-8 
+                    h3 Hacela triple 
+                    p Extra carne + extra queso x2 #[strong #{matriple}]
+
+            .veggie 
+                h1 ARROZ
+                p Medallón de arroz yamani con cabutia + Tomate + Lechuga <br> + Salsa mil islas + Cebolla caramelizada +Queso a elección (Cheddar o Danbo)
+                
+                h2 #[span Simple] #{arroz}
+
+
+                img.img-fluid.burguer(src="img/Vegui.png", alt="", srcset="")
+                img.tick(src="img/Stick.png", alt="", srcset="")
+                img.player.wow.fadeIn(src="img/Veguiman.png", alt="" data-wow-delay="2s")
+
+            
+            
+            
+            .section-entrada
+                .row.justify-content-between.align-items-center.manu
+                    .col-4
+                        h4 Simple 
+                        h2 #{egSimple}
+                        hr
+                        h4 Doble 
+                        h2 #{egdoble}
+                    .col.prod
+                        img.img-fluid(src="img/m.png", alt="", srcset="")
+                        .text-center
+                            h3 EG#[span 20]
+                            p Medallón #[br] + Cheddar X2
+            
+                    img.player.wow.slideInRight(src="img/manu.png", alt="")
+
+                .mt-5.px-4.text-center 
+                    img.img-fluid(src="img/sc30.png", alt="", srcset="")
+                    .sc30 
+                        h3 SC#[span 30]
+                        p Pan de papa + Carne + cheddar + 2 bastones de muzza + cebolla morada + ketchup + mostaza.        
+            
+            script(src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js")
+            script.
+                const wow = new WOW({
+                        boxClass: 'wow',
+                        animateClass: 'animated',
+                        offset: 0,
+                        mobile: true,
+                        live: true
+                    });
+                    wow.init();
+                window.addEventListener('load', function() {
+                    var loadingScreen = document.getElementById('loading-screen');
+                    var content = document.getElementById('content');
+
+                    // Oculta la pantalla de carga y muestra el contenido
+                    loadingScreen.style.display = 'none';
+                    content.style.display = 'block';
+                });
