@@ -1,30 +1,4 @@
--var name = "Weimburg"
-
--var papasFritas= "$6.400"
--var arosdecebolla= "$9.200"
--var bastondemuzzarela = "$9.200"
--var slicecheece= "$3.900"
-
--var Promocost = ["$22.860", "$33.000", "$18.000"]
--var arroz= "$10.300"
--var matriple = "$2.400"
-
-/// manu ginobili 
--var egSimple = "$10.300"
--var egdoble = "$12.700"
-
-/// sc30 & dr
--var scsimple = "$13.700"
--var scdoble = "$16.100"
-
-// lakers
--var kbsimple = "$11.400"
--var kbdoble = "$13.800"
-
-/// bulls
--var mjsimple = "$12.600"
--var mjdoble = "$15.000"
-
+include ./abstrab/variables.pug
 
 mixin promo(classname, description, price)
     div(class=classname): .text-sect
@@ -34,7 +8,7 @@ mixin promo(classname, description, price)
 
 
 doctype html
-html(lang="en")
+html(lang="es")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -47,11 +21,11 @@ html(lang="en")
         .menu#main
             .d-flex.justify-content-center: img.img-fluid.logo(src="./img/logo.png")
 
-            .d-flex.justify-content-center.map.wow.rotateInDownRight(data-wow-delay="2s"): img.img-fluid(src="./img/map.png")
+            .d-flex.justify-content-center.map.wow.rotateInDownRight: img.img-fluid(src="./img/map.png")
 
 
             h1 Menu
-            .section-entrada 
+            .section-entrada.endwra
                 h1 Entradas
                 .entradas.wow.slideInRight
                     img.img-fluid(src="./img/fries.png", alt="")
@@ -81,7 +55,7 @@ html(lang="en")
                 +promo("b", ["2 Dobles a eleccion","+ porcion de papas"], Promocost[1])
                 +promo("c", ["2 slice cheese","+ bastones de muzzarela"], Promocost[2])
             
-            .section-entrada.unla: .row.make3
+            .section-entrada.unla.endwra: .row.make3
                 .col-3: img.img-fluid(src="img/bur.png", alt="", srcset="")
                 .col-8 
                     h3 Hacela triple 
@@ -123,21 +97,43 @@ html(lang="en")
                         h3 SC#[span 30]
                         p Pan de papa + Carne + cheddar + 2 bastones de muzza + cebolla morada + ketchup + mostaza.        
             
-            script(src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js")
-            script.
-                const wow = new WOW({
-                        boxClass: 'wow',
-                        animateClass: 'animated',
-                        offset: 0,
-                        mobile: true,
-                        live: true
-                    });
-                    wow.init();
-                window.addEventListener('load', function() {
-                    var loadingScreen = document.getElementById('loading-screen');
-                    var content = document.getElementById('content');
+                .divsc
+                    h3 #[small simple] #{scsimple} #[small doble] #{scdoble}
+                    h3 #[small simple] #{scsimple} #[small doble] #{scdoble}
+                    h3 #[small simple] #{scsimple} #[small doble] #{scdoble}
+                   
+                .dr 
+                    img.img-fluid(src="img/DR.png", alt="", srcset="")
+                    img.img-fluid.drp(src="img/DRp.png", alt="", srcset="")
+                    h3 #[span DR]90
+                    p Medallón +Cheddar + Queso ahumado + Hongos +Cebolla crispy + Mostaza dulce
 
-                    // Oculta la pantalla de carga y muestra el contenido
-                    loadingScreen.style.display = 'none';
-                    content.style.display = 'block';
-                });
+
+            img.tape(src="img/tape.png", alt="")
+
+            .lakers 
+                
+                img.img-fluid.wow.fadeInRightBig(src="img/kb.png", alt="", srcset="")
+                .pricelakers.wow.flipInX(data-wow-duration="2s")
+                    div
+                        h4 Simple 
+                        h2 #{kbsimple}
+                    div
+                        h4 Doble
+                        h2 #{kbdoble}
+
+                img.img-fluid.wow.fadeInRightBig(src="img/lbj.png", alt="", srcset="")
+
+            .bulls 
+                img.jordan.wow.slideInLeft(src="img/jordan.png", alt="")
+                img.img-fluid(src="img/mj30.png", alt="", srcset="")
+            
+            .divsc
+                h3 #[small simple] #{mjsimple} #[small doble] #{mjdoble}
+                h3 #[small simple] #{mjsimple} #[small doble] #{mjdoble}
+                h3 #[small simple] #{mjsimple} #[small doble] #{mjdoble}
+            .hits 
+                img.img-fluid(src="img/cb1.png", alt="alt")
+               
+       
+        include ../pluguins/wow.pug

@@ -38,6 +38,19 @@ h1{
     font-size: 4em;
 }
 
+.endwra{
+    &::after{
+        content: ' ';
+        position: absolute;
+        left: 0;
+        bottom: -99px;
+        height: 100px;
+        width: 100%;
+        background: url('../img/trasf.png') no-repeat;
+        background-size: contain;
+}
+}
+
 
 .section-entrada{
     background-color: $wt;
@@ -55,16 +68,7 @@ h1{
         background: url('../img/trasf.png') no-repeat;
         background-size: contain;
     }
-    &::after{
-        content: ' ';
-        position: absolute;
-        left: 0;
-        bottom: -99px;
-        height: 100px;
-        width: 100%;
-        background: url('../img/trasf.png') no-repeat;
-        background-size: contain;
-    }
+    
     
     .entradas{
         display: flex;
@@ -305,4 +309,134 @@ h1{
             color: #e1a833;
         }
     }
+}
+
+.divsc{
+    background-color: #000000;
+    color: white;
+    width: 110%;
+    transform: rotate(-2deg) translateX(-5%);
+    padding: 2em 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    h3 {
+        @extend .nameburg;
+        position: relative;
+        white-space: nowrap;
+        animation: moveText 10s linear infinite;
+        small {
+            display: inline-block;
+            color: $red;
+            
+          }
+    }
+}
+
+@keyframes moveText {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+    
+}
+
+.drp{
+    position: absolute;
+    right: 10px;
+    top: 0;
+    width: 150px;
+    animation: denis infinite 1s alternate;
+}
+
+@keyframes denis{
+    from{
+        transform: rotate(-5deg);
+    }
+    to{
+        transform: rotate(5deg);
+    }
+}
+
+.dr{
+    background: url('img/sect1.png') no-repeat bottom;
+    padding: 5rem 1em;
+    margin-top: -10px;
+    margin-bottom: -2.5vh;
+    text-align: center;
+    position: relative;
+    h3 {
+        @extend .nameburg;
+        span{
+            color: white;
+        }
+    }
+    p{
+        font-weight: 800;
+        color: white;
+    }
+}
+.tape{
+    position: relative;
+    transform: translateY(-70%);
+    margin-left: 15%;
+    z-index: 10;
+}
+
+.lakers{
+    margin-top: -15em;
+    background: url('./img/sect2.png') bottom;
+    padding: 7em 1em 2em 1em;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    .pricelakers{
+                background: url('img/lakersprice.png');
+        border-radius: 8px;
+        margin: 1em 0;
+        transform: rotate(2deg);
+        color: white;
+        padding: 1em 0.5em; 
+        top: 0;
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        h4{
+            @extend .title;
+            color: #000000
+        }
+        h2{
+            @extend .nameburg;
+            color: #780de1;
+        }
+    }
+    
+}
+
+
+
+.bulls{
+    padding: 10em 0.5em 5em 0.5em;
+    background: url('./img/sect3.png') top right no-repeat #d6182d;
+    background-size: contain;
+    position: relative;
+    margin-bottom: -15px;
+}
+.jordan{
+    max-width: 60%;
+    height: auto;
+    position: absolute;
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hits{
+    background: url('./img/sect32.png');
+    padding:  0.5em;
+    margin-top: -15px;
+    z-index: 100;
+    position: relative;
 }

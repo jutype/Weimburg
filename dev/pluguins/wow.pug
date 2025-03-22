@@ -1,0 +1,18 @@
+script(src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js")
+script.
+    const wow = new WOW({
+            boxClass: 'wow',
+            animateClass: 'animated',
+            offset: -20,
+            mobile: true,
+            live: true
+        });
+        wow.init();
+    window.addEventListener('load', function() {
+        var loadingScreen = document.getElementById('loading-screen');
+        var content = document.getElementById('content');
+
+        // Oculta la pantalla de carga y muestra el contenido
+        loadingScreen.style.display = 'none';
+        content.style.display = 'block';
+    });
