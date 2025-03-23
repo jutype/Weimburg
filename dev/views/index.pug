@@ -132,8 +132,35 @@ html(lang="es")
                 h3 #[small simple] #{mjsimple} #[small doble] #{mjdoble}
                 h3 #[small simple] #{mjsimple} #[small doble] #{mjdoble}
                 h3 #[small simple] #{mjsimple} #[small doble] #{mjdoble}
-            .hits 
-                img.img-fluid(src="img/cb1.png", alt="alt")
-               
-       
+            .hits: img.img-fluid(src="img/cb1.png", alt="alt")
+
+            .cambio 
+                p.text-center Todas las hamburguesas #[span incluyen papas fritas] Cambio de papas por aros
+                img.img-fluid(src="img/cambio.png", alt="", srcset="")
+
+            .postre.croppostre 
+                img(src="img/franui.png", alt="", srcset="")
+                h2 FRANUI #[span #{frani}]
+
+                img(src="img/leb.png", alt="", srcset="")
+                h2 Le banana bites #[span #{frani}]
+            
+            img.img-fluid(src="img/cola.png", alt="", srcset="")
+            .pricebe                
+                .text-center.text-white: h2 BEBIDAS
+                each data in bebidasna
+                    - var index = bebidasna.indexOf(data)
+                    .d-flex.g-2.justify-content-around.mt-2
+                        p=data
+                        p.red=bebidaspri[index]
+            
+            img.img-fluid.mt-5(src="img/bee.png", alt="", srcset="")
+            .pricebe                
+                .text-center.text-white: h2 CERVEZAS
+                each data in beerna
+                    - var index = beerna.indexOf(data)
+                    .d-flex.g-2.justify-content-around.mt-2
+                        p=data
+                        p.red=beerpri[index]
+
         include ../pluguins/wow.pug
